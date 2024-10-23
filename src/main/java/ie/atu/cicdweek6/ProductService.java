@@ -18,4 +18,20 @@ public class ProductService {
     {
         return myList;
     }
+
+    public List<Product> editProducts(int id, Product product)
+    {
+
+        for(int i = 0; i<myList.size(); i++)
+        {
+
+            if(myList.get(i).getId() == id)
+            {
+                myList.set(i, product);
+            }
+
+        }
+
+        return myList;
+    }
 }
