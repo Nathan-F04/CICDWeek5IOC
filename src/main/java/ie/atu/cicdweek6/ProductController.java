@@ -2,10 +2,7 @@ package ie.atu.cicdweek6;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +25,12 @@ public class ProductController {
     public List<Product> allProducts()
     {
         return myProduct.getProducts();
+    }
+
+    @PutMapping("/{id}")
+    public List<Product> editProducts(@Valid @PathVariable int id, @Valid @RequestBody Product product)
+    {
+        return myProduct.editProducts(id, product);
     }
 
 }
