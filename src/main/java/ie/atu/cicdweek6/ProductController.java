@@ -27,10 +27,16 @@ public class ProductController {
         return myProduct.getProducts();
     }
 
-    @PutMapping("/{id}")
-    public List<Product> editProducts(@Valid @PathVariable int id, @Valid @RequestBody Product product)
+    @PutMapping("/editProduct/{id}")
+    public List<Product> editProducts(@PathVariable int id, @Valid @RequestBody Product product)
     {
         return myProduct.editProducts(id, product);
+    }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public List<Product> deleteProducts(@PathVariable int id)
+    {
+        return myProduct.deleteProducts(id);
     }
 
 }
